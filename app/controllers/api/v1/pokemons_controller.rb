@@ -1,11 +1,16 @@
 class Api::V1::PokemonsController < ApplicationController
+  include Pagy::Backend
   before_action :set_pokemon, only: [:show, :update, :destroy]
+  after_action { pagy_headers_merge(@pagy) if @pagy }
 
   # GET api/v1/pokemons
+  # GET api/v1/pokemons?page=1&items=10
   def index
     @pokemons = Pokemon.order(:number, :name)
+    @pagy, @pokemons = pagy(@pokemons) if params[:page]
+
     if @pokemons
-      render json: {status: "Success", message: "Fetched all Pokemons successfully", data: @pokemons}, status: :ok
+      render json: {status: "Success", message: "Fetched Pokemons successfully", data: @pokemons}, status: :ok
     else
       render json: @friends.errors, status: :bad_request
     end
