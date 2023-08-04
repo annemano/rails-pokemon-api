@@ -24,33 +24,6 @@ RSpec.describe Pokemon, :type => :model do
     expect(subject).to_not be_valid
   end
 
-  it "is not valid without a unique number" do
-    Pokemon.create!(number: 1,
-            name: "Pikachu",
-            type_1: "Electric",
-            total: 100,
-            hp: 100,
-            attack: 100,
-            defense: 100,
-            sp_atk: 100,
-            sp_def: 100,
-            speed: 100,
-            generation: 1)
-    pokemon = Pokemon.new(number: 1,
-                      name: "Bulbasaur",
-                      type_1: "Grass",
-                      total: 100,
-                      hp: 100,
-                      attack: 100,
-                      defense: 100,
-                      sp_atk: 100,
-                      sp_def: 100,
-                      speed: 100,
-                      generation: 1)
-
-    expect(pokemon).to_not be_valid
-  end
-
   it "is not valid without a positive number" do
     subject.number = -5
     expect(subject).to_not be_valid

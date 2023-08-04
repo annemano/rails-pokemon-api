@@ -3,7 +3,7 @@ class Pokemon < ApplicationRecord
 
   validates :number, :name, :type_1, :total, :hp, :attack, :defense, :sp_atk,
             :sp_def, :speed, :generation, presence: true
-  validates :number, :name, uniqueness: true
+  validates :name, uniqueness: true
   validates :number, :generation, numericality: { :greater_than_or_equal_to => 0 }
   validates :type_1,
             inclusion: { in: VALID_TYPES,
