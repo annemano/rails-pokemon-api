@@ -28,7 +28,7 @@ class Api::V1::PokemonsController < ApplicationController
   # POST api/v1/pokemons/
   def create
     @pokemon = Pokemon.new(pokemon_params)
-    if @pokemon.save!
+    if @pokemon.save
       render json: {status: "Success", message: "#{@pokemon.name} was created successfully!", data: @pokemon}, status: :created
     else
       render json: @pokemon.errors, status: :unprocessable_entity
