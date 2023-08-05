@@ -40,9 +40,7 @@ By default, it will return 25 items per page. You can override this by using the
 ## Tests
 Run all tests with **Rspec**:
 
-`db:test:prepare`
-
-`rspec`
+`bundle exec rspec`
 
 ## Future development
 This is meant to be used locally for fun! There is no user authentication/authorization implemented.
