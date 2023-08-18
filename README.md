@@ -51,6 +51,6 @@ bundle exec rspec
 This is meant to be used locally for fun! There is no user authentication/authorization implemented.
 However, this could be a next step: implement Devise and [Devise-JWT](https://github.com/waiting-for-dev/devise-jwt).
 
-To make the local installation easier, we could also add a Dockerfile and use docker-compose, especially for the db.
+To make the local installation easier, we could also use Docker (docker-compose), especially for the db.
 
-We could also send better JSON responses by using [jbuilder](https://github.com/rails/jbuilder), especially if the pokemon data gets more complex.
+We could also send better JSON responses by using [jbuilder](https://github.com/rails/jbuilder) for serialization, especially if the pokemon data gets more complex.
